@@ -26,4 +26,10 @@ public class projectileController : MonoBehaviour
     {
         
     }
+
+    //changes rigidbody force to 0
+    public void removeForce()
+    {
+        myRB.velocity = new Vector2(0, 0);
+    }
 }
