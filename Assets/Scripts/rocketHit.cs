@@ -31,6 +31,11 @@ public class rocketHit : MonoBehaviour
             myPC.removeForce();
             Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(gameObject);
+            if(collision.tag == "Enemy")
+            {
+                enemyHeath hurtEnemy = collision.gameObject.GetComponent<enemyHeath>();
+                hurtEnemy.addDamage(weaponDamage);
+            }
         }
     }
 
@@ -42,6 +47,11 @@ public class rocketHit : MonoBehaviour
             myPC.removeForce();
             Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(gameObject);
+            if(collision.tag == "Enemy")
+            {
+                enemyHeath hurtEnemy = collision.gameObject.GetComponent<enemyHeath>();
+                hurtEnemy.addDamage(weaponDamage);
+            }
         }
     }
 }
