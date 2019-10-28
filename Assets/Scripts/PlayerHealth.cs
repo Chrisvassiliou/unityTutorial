@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyHeath : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public float enemyMaxHealth;
+
+    public float fullHealth;
     public GameObject deathFX;
 
     float currentHealth;
+    playerController moveControl;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = enemyMaxHealth;
+        currentHealth = fullHealth;
+        moveControl = GetComponent<playerController>();
 
     }
 
@@ -22,15 +25,21 @@ public class enemyHeath : MonoBehaviour
         
     }
 
-    //allows other objects to effect enemy health
     public void addDamage (float damage)
     {
+        if(damage<=0)
+        {
+            return;
+        }
         currentHealth = currentHealth - damage;
-        if (currentHealth <= 0) makeDead();
+
+        if(currentHealth<=0)
+        {
+            makeDead();
+        }
     }
 
-    //kills the enemy
-    void makeDead()
+    public void makeDead()
     {
         Instantiate(deathFX, transform.position, transform.rotation);
         Destroy(gameObject);
