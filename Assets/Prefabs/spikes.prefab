@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMaxHealth: 100
   deathFX: {fileID: 8879793155063922352, guid: db4d1917784ed3e419f0414850c5ced9, type: 3}
+  enemySlider: {fileID: 0}
+  enemyDeathSound: {fileID: 0}
 --- !u!61 &8949900706820917169
 BoxCollider2D:
   m_ObjectHideFlags: 0

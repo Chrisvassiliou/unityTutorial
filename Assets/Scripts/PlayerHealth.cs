@@ -8,10 +8,13 @@ public class PlayerHealth : MonoBehaviour
 
     public float fullHealth;
     public GameObject deathFX;
+    public AudioClip playerHurtSound;
 
     float currentHealth;
     playerController moveControl;
 
+    AudioSource playerAS;
+    
     //HUD variables
     //have to add ui library up top!
     public Slider healthSlider;
@@ -33,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.value = fullHealth;
 
         damaged = false;
+        playerAS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,11 +61,24 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
         currentHealth = currentHealth - damage;
+
+        //first option to call player grunting sound on damage
+        playerAS.clip = playerHurtSound;
+        playerAS.Play();
+
+        //second option for sounds
+        // playerAS.PlayOneShot(playerHurtSound);
         healthSlider.value = currentHealth;
         damaged = true;
 
         if(currentHealth<=0)
         {
+            //you can't use the player object to make the death noise - make a new object and destroy it
+            GameObject PlayerDeathSoundObj = new GameObject("Death sound");
+            PlayerDeathSoundObj.AddComponent<AudioSource>();
+            AudioSource deathAS = PlayerDeathSoundObj.GetComponent<AudioSource>();
+            deathAS.PlayOneShot(playerHurtSound);
+            
             makeDead();
         }
     }

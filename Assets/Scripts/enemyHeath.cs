@@ -8,8 +8,11 @@ public class enemyHeath : MonoBehaviour
     public float enemyMaxHealth;
     public GameObject deathFX;
     public Slider enemySlider;
+    public AudioClip enemyDeathSound;
 
     float currentHealth;
+
+    AudioSource enemyAS;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,8 @@ public class enemyHeath : MonoBehaviour
         currentHealth = enemyMaxHealth;
         enemySlider.maxValue = currentHealth;
         enemySlider.value = currentHealth;
+
+        enemyAS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,15 +37,25 @@ public class enemyHeath : MonoBehaviour
 
         currentHealth = currentHealth - damage;
 
+        //how to get this noise to play when enemy dies? 
+            
         enemySlider.value = currentHealth;
-        if (currentHealth <= 0) makeDead();
-
+        if (currentHealth <= 0)
+        {
+            GameObject enemyDeathSoundObj = new GameObject("Death sound");
+            enemyDeathSoundObj.AddComponent<AudioSource>();
+            AudioSource deathAS = enemyDeathSoundObj.GetComponent<AudioSource>();
+            deathAS.PlayOneShot(enemyDeathSound);
+            
+            makeDead();
+        }
     }
 
     //kills the enemy
     void makeDead()
     {
         Instantiate(deathFX, transform.position, transform.rotation);
+
         Destroy(gameObject);
     }
 }
