@@ -10,6 +10,10 @@ public class enemyHeath : MonoBehaviour
     public Slider enemySlider;
     public AudioClip enemyDeathSound;
 
+    //health drops
+    public bool drops;
+    public GameObject theDrop;
+
     float currentHealth;
 
     AudioSource enemyAS;
@@ -42,6 +46,7 @@ public class enemyHeath : MonoBehaviour
         enemySlider.value = currentHealth;
         if (currentHealth <= 0)
         {
+
             GameObject enemyDeathSoundObj = new GameObject("Death sound");
             enemyDeathSoundObj.AddComponent<AudioSource>();
             AudioSource deathAS = enemyDeathSoundObj.GetComponent<AudioSource>();
@@ -57,5 +62,12 @@ public class enemyHeath : MonoBehaviour
         Instantiate(deathFX, transform.position, transform.rotation);
 
         Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
+
+        //drops appearing
+        if (drops == true)
+        {
+            Instantiate(theDrop, transform.position, transform.rotation);
+        }
     }
 }

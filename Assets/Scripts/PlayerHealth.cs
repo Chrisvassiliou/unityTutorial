@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float fullHealth;
     public GameObject deathFX;
     public AudioClip playerHurtSound;
+    public AudioClip playerHealSound;
 
     float currentHealth;
     playerController moveControl;
@@ -81,6 +82,19 @@ public class PlayerHealth : MonoBehaviour
             
             makeDead();
         }
+    }
+
+    public void addHealth(float healthAmount)
+    {
+        currentHealth += healthAmount;
+        if (currentHealth > fullHealth)
+        {
+            currentHealth = fullHealth;
+            
+        }
+        healthSlider.value = currentHealth;
+        playerAS.clip = playerHealSound;
+        playerAS.Play();
     }
 
     public void makeDead()

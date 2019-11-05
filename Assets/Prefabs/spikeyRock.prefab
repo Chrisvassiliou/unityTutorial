@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3546157401966563492}
-  - {fileID: 8112877919253986928}
+  - {fileID: 2173053246801580167}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -116,8 +116,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMaxHealth: 20
   deathFX: {fileID: 8879793155063922352, guid: db4d1917784ed3e419f0414850c5ced9, type: 3}
-  enemySlider: {fileID: 4240486142649697978}
+  enemySlider: {fileID: 7464622591112786290}
   enemyDeathSound: {fileID: 8300000, guid: 98ea146165daf2044861fad84eaff8bc, type: 3}
+  drops: 0
+  theDrop: {fileID: 3997957279186952085, guid: ea770c6b4ce8c084d8feb7cd85854411, type: 3}
 --- !u!114 &1490032719990620908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +278,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!1001 &3553091455418553829
+--- !u!1001 &6913477101539736338
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -351,7 +353,7 @@ PrefabInstance:
     - target: {fileID: 4745006894266755989, guid: 75796b25a742278419b75791623b6d19,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.39
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 4745006894266755989, guid: 75796b25a742278419b75791623b6d19,
         type: 3}
@@ -393,29 +395,19 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 520335434133219426, guid: 75796b25a742278419b75791623b6d19,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4915727189246229229, guid: 75796b25a742278419b75791623b6d19,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75796b25a742278419b75791623b6d19, type: 3}
---- !u!224 &8112877919253986928 stripped
+--- !u!224 &2173053246801580167 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4745006894266755989, guid: 75796b25a742278419b75791623b6d19,
     type: 3}
-  m_PrefabInstance: {fileID: 3553091455418553829}
+  m_PrefabInstance: {fileID: 6913477101539736338}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4240486142649697978 stripped
+--- !u!114 &7464622591112786290 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 834897075499488095, guid: 75796b25a742278419b75791623b6d19,
+  m_CorrespondingSourceObject: {fileID: 4063989014119615072, guid: 75796b25a742278419b75791623b6d19,
     type: 3}
-  m_PrefabInstance: {fileID: 3553091455418553829}
+  m_PrefabInstance: {fileID: 6913477101539736338}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

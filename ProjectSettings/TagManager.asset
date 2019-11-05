@@ -16,7 +16,7 @@ TagManager:
   - 
   - Ground
   - Shootable
-  - 
+  - plantTurret
   - 
   - 
   - 
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: plantTurret
+    uniqueID: 34815775
     locked: 0
